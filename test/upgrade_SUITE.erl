@@ -175,7 +175,7 @@ upgrade_ranch_one_conn(_) ->
 		ok = gen_tcp:send(S, "Hello!"),
 		{ok, <<"Hello!">>} = gen_tcp:recv(S, 0, 1000),
 		%% Update Ranch to master then build a release upgrade.
-		do_use_ranch_commit(Example, "master"),
+		do_use_ranch_commit(Example, "release-upgrades"),
 		do_build_relup(Example, CommitOrTag),
 		%% Perform the upgrade, then check that our connection is still up.
 		do_upgrade(Example),
